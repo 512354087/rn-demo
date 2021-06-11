@@ -7,6 +7,7 @@
  */
 
 import React from 'react';
+import Config from "react-native-config";
 import {
   SafeAreaView,
   StyleSheet,
@@ -14,6 +15,7 @@ import {
   View,
   Text,
   StatusBar,
+  TouchableOpacity
 } from 'react-native';
 
 import {
@@ -24,7 +26,10 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-const App: () => React$Node = () => {
+const App: () => React.FC = () => {
+  const _onPress = ()=>{
+    alert(124)
+  }
   return (
     <>
       <StatusBar barStyle="dark-content" />
@@ -53,17 +58,21 @@ const App: () => React$Node = () => {
               </Text>
             </View>
             <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Debug</Text>
+              <Text style={styles.sectionTitle}>Debug111</Text>
               <Text style={styles.sectionDescription}>
                 <DebugInstructions />
               </Text>
             </View>
+          
             <View style={styles.sectionContainer}>
               <Text style={styles.sectionTitle}>Learn More</Text>
               <Text style={styles.sectionDescription}>
                 Read the docs to discover what to do next:
               </Text>
             </View>
+            <TouchableOpacity onPress={_onPress}>
+              <Text>{Config.API_URL}</Text>
+            </TouchableOpacity>
             <LearnMoreLinks />
           </View>
         </ScrollView>
